@@ -1,5 +1,4 @@
-// filepath: /c:/Users/lukev/OneDrive/Desktop/MCAST/6.2A/Client Side Scripting/InventoryTracker/src/router.js
-import { createRouter, createHashWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import HomePage from './components/HomePage.vue';
 import AddPage from './components/AddPage.vue';
 import SearchPage from './components/SearchPage.vue';
@@ -11,7 +10,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createHashWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 
