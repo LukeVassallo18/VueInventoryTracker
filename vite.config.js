@@ -1,3 +1,4 @@
+// filepath: /c:/Users/lukev/OneDrive/Desktop/MCAST/6.2A/Client Side Scripting/Inventory Tracker - pre github/vite.config.js
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
