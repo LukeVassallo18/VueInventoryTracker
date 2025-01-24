@@ -1,3 +1,31 @@
+<!--
+
+This Vue component represents a search page for a Personal Inventory Tracker application. 
+It includes a navigation bar, a search input, and a section to display search results.
+
+Template:
+- Header with a navigation bar containing links to Home, Add, and Search pages.
+- A search input field with a button to trigger the search.
+- A section to display search results in a list format.
+- An image and a large search icon for visual enhancement.
+
+Script:
+- Uses Vue's Composition API with `ref` to manage reactive state.
+- `searchQuery`: A reactive reference to store the search input value.
+- `searchResults`: A reactive reference to store the search results.
+- `searchItem`: An asynchronous function to fetch items from a Firebase database and filter them based on the search query.
+
+Styles:
+- Scoped CSS to style the component.
+- Flexbox layout for the container and search container.
+- Custom styles for the navigation bar, search results, and responsive design adjustments for smaller screens.
+- Background gradient applied to the body element.
+
+Dependencies:
+- Vue.js
+- Bootstrap for styling
+- Font Awesome for icons
+-->
 <template>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,7 +71,7 @@
         <i class="fas fa-search fa-10x"></i>
       </div>
     </div>
-    <!-- <img src="../assets/seo.png" alt="" width="20%" height="20%"> -->
+    <img src="../assets/seo.png" alt="" width="20%" height="20%">
   </div>
 </template>
 

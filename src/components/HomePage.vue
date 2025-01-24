@@ -1,3 +1,36 @@
+<!--
+This Vue component represents the home page of the Personal Inventory Tracker application.
+It includes a navigation bar, a list of inventory items, and an edit form for updating items.
+
+Template:
+- Header with a navigation bar containing links to Home, Add, and Search pages.
+- Main section displaying a list of inventory items with options to edit or delete each item.
+- Edit form for updating selected inventory items, which appears when an item is being edited.
+- Toast notification that appears when an item is successfully updated.
+
+Script:
+- Uses Vue's Composition API with `ref` to manage reactive state.
+- `items`: A reactive reference to store the list of inventory items.
+- `editItem`: A reactive reference to store the item being edited.
+- `isEditing`: A reactive reference to track whether the edit form is visible.
+- `modifiedItemId`: A reactive reference to highlight the recently modified item.
+- `fetchItems`: An asynchronous function to fetch items from a Firebase database.
+- `openEditForm`: A function to open the edit form with the selected item's data.
+- `closeEditForm`: A function to close the edit form.
+- `updateItem`: An asynchronous function to update the item in the Firebase database.
+- `deleteItem`: An asynchronous function to delete the item from the Firebase database.
+
+Styles:
+- Scoped CSS to style the component.
+- Flexbox layout for the container and edit form.
+- Custom styles for the navigation bar, main container, edit form, and toast notification.
+- Animations for highlighting modified items and transitioning the edit form.
+
+Dependencies:
+- Vue.js
+- Vuelidate for form validation
+- Bootstrap for styling
+-->
 <template>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1050;">

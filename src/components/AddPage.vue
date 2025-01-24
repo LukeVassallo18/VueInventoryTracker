@@ -1,5 +1,6 @@
 <template>
   <header>
+    <!--- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Personal Inventory Tracker</a>
@@ -30,7 +31,13 @@
       <h2 class="text-center mb-4 mt-4" >Add New Item</h2>
       <form @submit.prevent="addItem">
         <div class="mb-3">
+          <!-- Vuelidate validation color change for label -->
           <label for="itemName" class="form-label" :class="{ 'text-danger': $v.itemName.$error }">Item Name</label>
+          <!-- Trimming the input to remove any whitespaces or unwanted characters-->
+           <!-- When the input loses focus from the cursor, blur ensures that the validation is updated as soon as the user leaves the input field
+            This helps notify the user that if anything is invalid in the input string, it will be shown immediately.
+            if the value turns out to be invalid, the label will show an error message and the input box will glow red.
+             The same applies to itemQuantity and ItemCode-->
           <input
             type="text"
             class="form-control"
@@ -104,15 +111,20 @@ const itemName = ref('');
 const itemQuantity = ref('');
 const itemCode = ref('');
 const errorMessage = ref('');
+
+// setting the acceptable characters to be used in the itemCode input.
 const isAlphaNumeric = (str) => /^[a-zA-Z0-9]*$/gi.test(str);
 
+// rules for validation, itemName can onyl be alphabetical characters, itemQuantity can only be a number and itemCode can only be alphanumeric
 const rules = {
   itemName: { required, isNaN },
   itemQuantity: { required, minValue: minValue(1), maxValue: maxValue(100) },
   itemCode: { required, isAlphaNumeric }
 };
 
+// this will be used in the input vlaidtion process
 const $v = useVuelidate(rules, { itemName, itemQuantity, itemCode });
+
 
 const addItem = async () => {
   $v.value.$touch();
@@ -121,12 +133,14 @@ const addItem = async () => {
   }
 
   try {
+    // constructor for the newItem declaring its values in the parameters
     const newItem = {
       name: itemName.value,
       quantity: itemQuantity.value,
       code: itemCode.value
     };
 
+    // posting the item to firebase
     const addResponse = await fetch('https://vueusers-18567-default-rtdb.europe-west1.firebasedatabase.app/items.json', {
       method: 'POST',
       headers: {
