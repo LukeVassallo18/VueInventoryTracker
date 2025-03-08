@@ -27,29 +27,6 @@ Dependencies:
 - Font Awesome for icons
 -->
 <template>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Personal Inventory Tracker</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/add" class="nav-link">Add</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/search" class="nav-link">Search</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
   <div class="container mt-5">
     <div class="search-container input-group mb-3">
       <input type="search" class="form-control" placeholder="Search Item By Name..." aria-label="Search" v-model="searchQuery">
@@ -120,21 +97,7 @@ const searchItem = async () => {
   margin-top: 20px;
 }
 
-.navbar {
-  background-color: #7E99A3 !important;
-}
 
-.navbar-brand, .nav-link {
-  color: #F4EDD3 !important;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px;
-}
-
-.nav-link:hover {
-  color: #4A628A !important;
-  background-color: #F4EDD3;
-}
 
 body {
   overflow-x: hidden;
@@ -162,6 +125,7 @@ h2 {
 }
 
 .list-group-item {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,7 +159,5 @@ h2 {
 
 }
 
-.navbar-collapse {
-  justify-content: flex-end;
-}
+
 </style>

@@ -1,28 +1,5 @@
 <template>
-  <header>
-    <!--- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Personal Inventory Tracker</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/add" class="nav-link">Add</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/search" class="nav-link">Search</router-link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+  
   
   <div class="main-container"><div class="form-container">
     <div class="form-icon d-flex align-items-center justify-content-center">
@@ -82,6 +59,10 @@
       </form>
       <div v-if="errorMessage" class="alert alert-danger mt-3">
         <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+      </div>
+      <div class="image" style="display:flex; justify-content:center; margin-top: 20px;">
+        <img src="../assets/add-item.png" alt="" width="20%" height="20%">
+
       </div>
     </div>
   </div>
@@ -203,9 +184,9 @@ const clearErrorMessage = () => {
   font-size: 1.2rem;
 }
 
+
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -217,7 +198,7 @@ const clearErrorMessage = () => {
 .main-container {
   display: flex;
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 2%;
   height: 80vh;
 
 }
@@ -250,8 +231,11 @@ const clearErrorMessage = () => {
   .main-container {
     display: flex;
     justify-content: center;
-    margin: 0;
+    align-items: center; /* Center vertically */
+    margin: 0 auto; /* Center horizontally */
     width: 90%;
+    height: auto; /* Adjust height to fit content */
+    padding-top: 20px; /* Add padding to the top */
   }
 }
 

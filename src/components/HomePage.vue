@@ -32,29 +32,6 @@ Dependencies:
 - Bootstrap for styling
 -->
 <template>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1050;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Personal Inventory Tracker</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <router-link to="/" class="nav-link">Home</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/add" class="nav-link">Add</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/search" class="nav-link">Search</router-link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
   
     <main class="container mt-4 main-container" :class="{ 'shift-left': isEditing }">
       <h2>Inventory Items</h2>
@@ -222,15 +199,10 @@ Dependencies:
   </script>
   
   <style scoped>
-  .navbar {
-  background-color: #7E99A3 !important;
-}
 
-.navbar-brand, .nav-link {
-  color: #F4EDD3 !important;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px;
+
+.btn-secondary{
+  margin-left: 10px;
 }
 
 .nav-link:hover {
