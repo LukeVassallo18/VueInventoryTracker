@@ -27,3 +27,6 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Link to Github Hosting:
+https://github.com/LukeVassallo18/VueInventoryTracker/tree/gh-pages
