@@ -233,7 +233,18 @@ Dependencies:
   }
 
     .edit-form-container form {
-        margin-top: 60px;
+        margin-top: 80px;
+    }
+
+    @media (max-width: 428px) {
+        .main-container {
+            width: 100%;
+        }
+        .edit-form-container {
+          margin-top: 60px;
+            width: 100%;
+            right: -100%;
+        }
     }
   
   .edit-form-container.show {
@@ -247,5 +258,17 @@ Dependencies:
   @keyframes highlight-animation {
     0% { background-color: #7E99A3; }
     100% { background-color: white; }
+  }
+
+
+  .list-group{
+    background-color: #7E99A3;
+    padding: 20px;
+  }
+
+  .list-group-item{
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
   }
   </style>

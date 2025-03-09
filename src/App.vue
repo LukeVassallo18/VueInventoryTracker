@@ -1,22 +1,17 @@
 <script setup>
-import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import * as bootstrap from 'bootstrap';
 
-const router = useRouter();
 
 const handleNavLinkClick = () => {
   const navbarCollapse = document.getElementById('navbarNav');
-  const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-    toggle: false
-  });
-  bsCollapse.hide();
+  if (navbarCollapse.classList.contains('show')) {
+    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+      toggle: false
+    });
+    bsCollapse.hide();
+  }
 };
-
-onMounted(() => {
-  router.afterEach(() => {
-    handleNavLinkClick();
-  });
-});
 </script>
 
 <template>
@@ -44,20 +39,10 @@ onMounted(() => {
       </div>
     </nav>
   </header>
-  <transition name="slide-fade" mode="out-in">
     <router-view />
-  </transition>
 </template>
 
 <style scoped>
-.slide-fade-enter-active, .slide-fade-leave-active {
-  transition: all 0.5s ease;
-}
-
-.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 
 .navbar {
   background-color: #7E99A3 !important;
