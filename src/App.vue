@@ -1,7 +1,5 @@
 <script setup>
-import { useRouter } from 'vue-router';
 import * as bootstrap from 'bootstrap';
-
 
 const handleNavLinkClick = () => {
   const navbarCollapse = document.getElementById('navbarNav');
@@ -9,7 +7,9 @@ const handleNavLinkClick = () => {
     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
       toggle: false
     });
-    bsCollapse.hide();
+    setTimeout(() => {
+      bsCollapse.hide();
+    }, 100); // Adds a delay before hiding the collapse
   }
 };
 </script>
@@ -39,10 +39,22 @@ const handleNavLinkClick = () => {
       </div>
     </nav>
   </header>
-    <router-view />
+
+  <router-view :key="$route.path" v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
 </template>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 
 .navbar {
   background-color: #7E99A3 !important;
@@ -57,7 +69,7 @@ const handleNavLinkClick = () => {
 
 .nav-link:hover {
   color: #4A628A !important;
-  background-color: #F4EDD3; /* Add scale transform on hover */
+  background-color: #F4EDD3;
 }
 
 .navbar-collapse {
